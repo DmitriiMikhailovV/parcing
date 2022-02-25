@@ -1,84 +1,90 @@
 const puppeteer = require('puppeteer')
 const fs = require('fs')
 
-//search request
-//amount of items
-//#nejprodavanejsi
-// /nejprodavanejsi-nejlepsi-hdmi-kabely/18849600.htm
-//#cenadesc
-// /luxusni-nejdrazsi-hdmi-kabely/18849600.htm
-//#nejlepehodnocene
-// /hdmi-kabely-recenze/18849600.htm
-//https://www.alza.cz/search.htm?exps=iphone#cenadesc
-
-// https://www.alza.cz/iphone/18851638.htm
-
-//     console.log(document.querySelector("a[href$='#nejprodavanejsi']"))
-//     console.log(document.querySelector("a[href$='#cenadesc']"))
-//     console.log(document.querySelector("a[href$='#nejlepehodnocene']"))
-//   const resultedUrl = await page.url().slice(20)
-//   const bestselling = `${link}${searchParams.bestselling}/${resultedUrl}`
-//   const mostExpensive = `${link}${searchParams.mostExpensive}/${resultedUrl}`
-//   const reviews = `${link}/${searchQuery}${searchParams.reviews}${resultedUrl}`
-//   await browser.close()
 const link = 'https://www.alza.cz'
 const search = '/search.htm?exps='
 const query = 'iphone'
 const searchQuery = encodeURIComponent(query)
 const searchRequest = `${link}${search}${searchQuery}`
 
-const result = {
-  searchRequest: query,
-  amountOfItems: null,
-  bestsellingList: [],
-  mostExpensiveList: [],
-  reviewsList: [],
-}
+const requests = [
+  {
+    selector: "a[href$='#nejprodavanejsi']",
+    resultOf: 'bestsellingList',
+  },
+  {
+    selector: "a[href$='#cenadesc']",
+    resultOf: 'mostExpensiveList',
+  },
+  {
+    selector: "a[href$='#nejlepehodnocene']",
+    resultOf: 'reviewsList',
+  },
+]
 
-const start = async (query, searchRequest, result) => {
-  const browser = await puppeteer.launch({ headless: false, devtools: true })
+const result = {}
+
+const parsing = async (
+  query,
+  searchRequest,
+  result,
+  { selector, resultOf }
+) => {
+  const browser = await puppeteer.launch({ headless: true, devtools: true })
   const page = await browser.newPage()
   await page.setViewport({ width: 1920, height: 1020 })
-  await page.screenshot({ path: 'example.png' })
   await page.goto(searchRequest)
-  await page.waitForSelector("a[href$='#cenadesc']")
-  await page.$eval("a[href$='#cenadesc']", (elem) => elem.click())
+  await page.waitForSelector(selector)
+  await page.$eval(selector, (elem) => elem.click())
+  const currentPage = page.url()
+  await page.goto(currentPage)
+  result.searchRequest = query
+  const html = await page.evaluate(
+    (result, resultOf) => {
+      const numberOfItems = document.querySelector('span.numberItem').innerText
+      result['amountOfItems'] = Number(numberOfItems)
+      const items = document.querySelectorAll('div.browsingitem')
+      let arr = []
+      items.forEach((item) => {
+        const productKey = item.querySelector('span.code').innerText
+        const name = item.querySelector('a.name.browsinglink').innerText
+        const image = item
+          .querySelector('img.js-box-image')
+          .getAttribute('data-src')
+        const cost = item
+          .querySelector('span.c2')
+          .innerText.replace(/[^0-9]/g, '')
 
-  const html = await page.evaluate((result) => {
-    const numberOfItems = document.querySelector('span.numberItem').innerText
-    result['amountOfItems'] = Number(numberOfItems)
-    const items = document.querySelectorAll('div.box.browsingitem')
-    items.forEach((item) => {
-      const productKey = item.querySelector('span.code').innerText
-      const name = item.querySelector('a.name.browsinglink').innerText
-      const image = item
-        .querySelector('img.js-box-image')
-        .getAttribute('data-src')
-      const cost = item
-        .querySelector('span.c2')
-        .innerText.replace(/[^0-9]/g, '')
-      const stock = item
-        .querySelector('div.postfix')
-        .innerText.replace(/[a-zA-Z\s]/g, '')
-      const rating =
-        item
-          .querySelector('div.star-rating-wrapper')
-          .getAttribute('data-rating')
-          .slice(2) + ' %'
-      result.mostExpensiveList = [
-        ...result.mostExpensiveList,
-        { productKey, name, image, cost, stock, rating },
-      ]
-    })
-    console.log(result)
-    return result
-  }, result)
+        const stock = item.querySelector('div.postfix')
+          ? item
+              .querySelector('div.postfix')
+              .innerText.replace(/[a-zA-Z\s]/g, '')
+          : 'no data'
+        const rating = item.querySelector('div.star-rating-wrapper')
+          ? item
+              .querySelector('div.star-rating-wrapper')
+              .getAttribute('data-rating')
+              .slice(2) + ' %'
+          : 'no data'
+        arr = [...arr, { productKey, name, image, cost, stock, rating }]
+      })
+      result[resultOf] = arr
+      return result
+    },
+    result,
+    resultOf
+  )
 
-  // await browser.close()
-  fs.writeFile(`alza-parsing-by-${query}.json`, JSON.stringify(html), (err) => {
-    if (err) throw err
-    console.log(`Saved alza-parsing-by-${query}.json`)
-  })
+  fs.writeFile(
+    `alza-parsing-by-${query}-${resultOf}.json`,
+    JSON.stringify(html),
+    (err) => {
+      if (err) throw err
+      console.log(`Saved alza-parsing-by-${query}-${resultOf}.json`)
+    }
+  )
 }
 
-start(query, searchRequest, result)
+parsing(query, searchRequest, result, requests[0])
+parsing(query, searchRequest, result, requests[1])
+parsing(query, searchRequest, result, requests[2])

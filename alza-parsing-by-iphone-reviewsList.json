@@ -1,0 +1,198 @@
+{
+  "searchRequest": "iphone",
+  "amountOfItems": 234,
+  "reviewsList": [
+    {
+      "productKey": "RI039b1",
+      "name": "iPhone 13 Pro Max 128GB modrá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039b1.jpg",
+      "cost": "31990",
+      "stock": ">5",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039c1",
+      "name": "iPhone 13 Pro Max 256GB modrá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039c1.jpg",
+      "cost": "34990",
+      "stock": "1",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039b4",
+      "name": "iPhone 13 Pro Max 128GB zlatá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039b4.jpg",
+      "cost": "31990",
+      "stock": ">5",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039b2",
+      "name": "iPhone 13 Pro Max 128GB stříbrná",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039b2.jpg",
+      "cost": "31990",
+      "stock": ">5",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039b3",
+      "name": "iPhone 13 Pro Max 128GB grafitově šedá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039b3.jpg",
+      "cost": "31990",
+      "stock": ">5",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039c2",
+      "name": "iPhone 13 Pro Max 256GB stříbrná",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039c2.jpg",
+      "cost": "34990",
+      "stock": "3",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039c4",
+      "name": "iPhone 13 Pro Max 256GB zlatá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039c4.jpg",
+      "cost": "34990",
+      "stock": "1",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039d1",
+      "name": "iPhone 13 Pro Max 512GB modrá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039d1.jpg",
+      "cost": "41190",
+      "stock": ">5",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039d2",
+      "name": "iPhone 13 Pro Max 512GB stříbrná",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039d2.jpg",
+      "cost": "41190",
+      "stock": "1",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039e2",
+      "name": "iPhone 13 Pro Max 1TB stříbrná",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039e2.jpg",
+      "cost": "47390",
+      "stock": "3",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039e4",
+      "name": "iPhone 13 Pro Max 1TB zlatá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039e4.jpg",
+      "cost": "47390",
+      "stock": "2",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039b3",
+      "name": "iPhone 13 Pro Max 128GB grafitově šedá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039b3.jpg",
+      "cost": "30991",
+      "stock": "",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039e1",
+      "name": "iPhone 13 Pro Max 1TB modrá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039e1.jpg",
+      "cost": "47390",
+      "stock": "čáá27.03.2022",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039c3",
+      "name": "iPhone 13 Pro Max 256GB grafitově šedá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039c3.jpg",
+      "cost": "34990",
+      "stock": "no data",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039d3",
+      "name": "iPhone 13 Pro Max 512GB grafitově šedá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039d3.jpg",
+      "cost": "41190",
+      "stock": "no data",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039d4",
+      "name": "iPhone 13 Pro Max 512GB zlatá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039d4.jpg",
+      "cost": "41190",
+      "stock": "no data",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI039e3",
+      "name": "iPhone 13 Pro Max 1TB grafitově šedá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI039e3.jpg",
+      "cost": "47390",
+      "stock": "no data",
+      "rating": "99 %"
+    },
+    {
+      "productKey": "RI025b1",
+      "name": "iPhone Xs 64GB stříbrná",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI025b1.jpg",
+      "cost": "18490",
+      "stock": "",
+      "rating": "98 %"
+    },
+    {
+      "productKey": "RI025c1",
+      "name": "iPhone Xs 256GB stříbrná",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI025c1.jpg",
+      "cost": "18790",
+      "stock": "",
+      "rating": "98 %"
+    },
+    {
+      "productKey": "RI025b2",
+      "name": "iPhone Xs 64GB vesmírně šedá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI025b2.jpg",
+      "cost": "16490",
+      "stock": "",
+      "rating": "98 %"
+    },
+    {
+      "productKey": "RI025b2",
+      "name": "iPhone Xs 64GB vesmírně šedá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI025b2.jpg",
+      "cost": "15490",
+      "stock": "áí",
+      "rating": "98 %"
+    },
+    {
+      "productKey": "RI037b2",
+      "name": "iPhone 13 mini 128GB černá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI037b2.jpg",
+      "cost": "18490",
+      "stock": ">5",
+      "rating": "98 %"
+    },
+    {
+      "productKey": "RI037b5",
+      "name": "iPhone 13 mini 128GB růžová",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI037b5.jpg",
+      "cost": "18490",
+      "stock": ">5",
+      "rating": "98 %"
+    },
+    {
+      "productKey": "RI037b4",
+      "name": "iPhone 13 mini 128GB modrá",
+      "image": "https://cdn.alza.cz/Foto/f11/RI/RI037b4.jpg",
+      "cost": "18490",
+      "stock": ">5",
+      "rating": "98 %"
+    }
+  ]
+}
